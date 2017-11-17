@@ -6,6 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Subscription.delete_all
+User.delete_all
+Room.delete_all
 
-user = User.create(email: 'test1@test1.com', nickname: 'test1', name: 'Test1 Test1', password: "12341234")
-user.save
+user1 = User.create(email: 'test1@test1.com', nickname: 'test1', name: 'Test1 Test1', password: "12341234")
+user2 = User.create(email: 'test2@test2.com', nickname: 'test2', name: 'Test2 Test2', password: "12341234")
+user3 = User.create(email: 'test3@test3.com', nickname: 'test3', name: 'Test3 Test3', password: "12341234")
+user4 = User.create(email: 'test4@test4.com', nickname: 'test4', name: 'Test4 Test4', password: "12341234")
+
+room1 = Room.create(name: 'Tech')
+room2 = Room.create(name: 'Food')
+
+user1.subscribe(room1)
+user1.subscribe(room2)
+
+user2.subscribe(room1)
+
+user3.subscribe(room2)

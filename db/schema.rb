@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117000853) do
+ActiveRecord::Schema.define(version: 20171117103420) do
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.index ["name"], name: "index_rooms_on_name", unique: true
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.index ["room_id"], name: "index_subscriptions_on_room_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
