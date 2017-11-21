@@ -5,6 +5,5 @@ test:
   adapter: async
 
 production:
-  adapter: redis
-  url: redis://localhost:6379/1
-  channel_prefix: chatAppServer_production
+  adapter: postgresql
+  url: postgres://ocfauxieuhefes:d76c4e1af558e7cbb316b91072004653ef3a2663136eb684885377feb526e745@ec2-54-247-81-76.eu-west-1.compute.amazonaws.com:5432/d2a4oe65v7982q

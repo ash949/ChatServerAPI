@@ -6,7 +6,10 @@ class RoomsController < ApplicationController
 
   def show
     room = Room.find(params[:id])
-    render json: room, include: :users
+    render json: {
+      id: room.id,
+      name: room.name,
+      messages: Message.includes(:user).where("room_id = #{room.id}").order(id: :desc).pluck(:user_id, :nickname, :body)
+    }
   end
-
 end

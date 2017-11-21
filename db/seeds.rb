@@ -7,8 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Subscription.delete_all
+Message.delete_all
 User.delete_all
 Room.delete_all
+
 
 user1 = User.create(email: 'test1@test1.com', nickname: 'test1', name: 'Test1 Test1', password: "12341234")
 user2 = User.create(email: 'test2@test2.com', nickname: 'test2', name: 'Test2 Test2', password: "12341234")
@@ -18,9 +20,6 @@ user4 = User.create(email: 'test4@test4.com', nickname: 'test4', name: 'Test4 Te
 room1 = Room.create(name: 'Tech')
 room2 = Room.create(name: 'Food')
 
-user1.subscribe(room1)
-user1.subscribe(room2)
-
-user2.subscribe(room1)
-
-user3.subscribe(room2)
+user1.send_message('GTX 1080 ti is really fast', room1)
+user2.send_message('AMDDD IS BETTER', room1)
+user1.send_message('NVIDIA IS BETTERRR', room1)
